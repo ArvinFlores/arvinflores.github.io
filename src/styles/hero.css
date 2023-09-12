@@ -1,0 +1,37 @@
+.hero {
+  position: relative;
+}
+
+.hero:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.hero__bg {
+  width: 100%;
+}
+
+.hero__cta {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 2rem;
+  bottom: 15px;
+  z-index: 1;
+  max-width: 500px;
+}
+
+@media screen and (max-width: 767px) {
+  .hero__cta {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: none;
+  }
+}
