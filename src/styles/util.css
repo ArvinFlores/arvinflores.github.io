@@ -1,6 +1,8 @@
 .util-list-inline {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .util-list-inline--m1 > li:not(:last-child) { margin-right: 1rem; }

@@ -1,0 +1,53 @@
+.about {
+  display: flex;
+  align-items: center;
+}
+
+.about__img {
+  max-width: 50%;
+  border-top-right-radius: 200px 50%;
+  border-bottom-right-radius: 200px 50%;
+}
+
+.about__text {
+  position: relative;
+  text-align: right;
+  width: 100%;
+  padding: 4rem;
+}
+
+.about__text-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .1;
+  z-index: -1;
+}
+
+.about__icon {
+  text-align: center;
+}
+
+.about__icon img {
+  height: 50px;
+  width: auto;
+}
+
+.about__icon-list {
+  justify-content: flex-end;
+}
+
+@media screen and (max-width: 1335px) {
+  .about__text {
+    text-align: center;
+  }
+
+  .about__img {
+    display: none;
+  }
+
+  .about__icon-list {
+    justify-content: center;
+  }
+}
