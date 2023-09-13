@@ -4,3 +4,7 @@ import './styles/button.css';
 import './styles/navbar.css';
 import './styles/hero.css';
 import './styles/about.css';
+
+import { initNavbar } from './scripts/navbar';
+
+initNavbar(document.getElementById('navbar'));
