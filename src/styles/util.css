@@ -10,6 +10,8 @@
 .util-list-inline--m2 > li:not(:last-child) { margin-right: 2rem; }
 .util-list-inline--m3 > li:not(:last-child) { margin-right: 3rem; }
 
+.util-pb-s { padding-bottom: 1rem; }
+
 .util-mb-xs { margin-bottom: .5rem; }
 .util-mb-s { margin-bottom: 1rem; }
 .util-mb-m { margin-bottom: 1.5rem; }
@@ -18,6 +20,11 @@
 .util-ta-c { text-align: center; }
 
 .util-container-padded { padding: 4rem; }
+
+.util-bg-dark-blue {
+  background-color: #052d55;
+  color: white;
+}
 
 @media screen and (max-width: 767px) {
   .util-container-padded { padding: 2rem; }
