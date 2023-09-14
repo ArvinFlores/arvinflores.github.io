@@ -1,5 +1,19 @@
 .hero {
   position: relative;
+  height: 600px;
+}
+
+.hero:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../../static/images/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero:after {
@@ -9,11 +23,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, .5);
-}
-
-.hero__bg {
-  width: 100%;
+  background-color: rgba(0, 0, 0, .6);
 }
 
 .hero__cta {
@@ -24,6 +34,7 @@
   bottom: 15px;
   z-index: 1;
   max-width: 500px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 767px) {
@@ -32,6 +43,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    width: 100%;
     max-width: none;
+    padding: 1rem;
   }
 }
