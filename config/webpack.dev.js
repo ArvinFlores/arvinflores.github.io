@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const base = require('./webpack.base');
+const path = require('path');
 
 module.exports = merge(base, {
   mode: 'development',
@@ -8,7 +9,10 @@ module.exports = merge(base, {
     runtimeChunk: 'single'
   },
   devServer: {
-    static: '../public',
+    static: {
+      directory: path.join(__dirname, '../static/images'),
+      publicPath: '/images'
+    },
     port: 7777
   },
 });
