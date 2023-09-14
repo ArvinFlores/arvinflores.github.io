@@ -26,6 +26,14 @@
   color: white;
 }
 
+.util-mobile-only {
+  display: none;
+}
+
 @media screen and (max-width: 767px) {
   .util-container-padded { padding: 2rem; }
+
+  .util-mobile-only { display: block; }
+
+  .util-desktop-only { display: none; }
 }

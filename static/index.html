@@ -15,11 +15,41 @@
       </a>
     </div>
     <div>
-      <ul class="util-list-inline util-list-inline--m2">
+      <ul class="util-list-inline util-list-inline--m2 util-desktop-only">
         <li class="navbar__link">
           <a href="#">About</a>
         </li>
         <li class="navbar__link">
+          <a href="#">What people say</a>
+        </li>
+        <li class="navbar__link">
+          <a href="#">Work with me</a>
+        </li>
+      </ul>
+      <button
+        id="navbar__menu-btn"
+        class="btn btn--transparent util-mobile-only"
+        aria-label="open navigation menu"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-controls="navbar__menu"
+      >
+        <i class="fa-solid fa-bars fa-xl"></i>
+      </button>
+    </div>
+    <div id="navbar__menu" class="navbar__menu util-bg-dark-blue">
+      <button
+        id="navbar__menu-close-btn"
+        class="btn btn--transparent navbar__menu-close"
+        aria-label="close navigation menu"
+      >
+        <i class="fa-solid fa-xmark fa-2xl"></i>
+      </button>
+      <ul>
+        <li class="navbar__link util-mb-s">
+          <a href="#">About</a>
+        </li>
+        <li class="navbar__link util-mb-s">
           <a href="#">What people say</a>
         </li>
         <li class="navbar__link">
