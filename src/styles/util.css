@@ -4,11 +4,9 @@
   justify-content: center;
 }
 
-.util-list-inline--va-top { align-items: flex-start; }
-
-.util-list-inline--m1 > li:not(:last-child) { margin-right: 1rem; }
-.util-list-inline--m2 > li:not(:last-child) { margin-right: 2rem; }
-.util-list-inline--m3 > li:not(:last-child) { margin-right: 3rem; }
+.util-list-inline > li:not(:last-child) {
+  margin-right: 2rem;
+}
 
 .util-pb-s { padding-bottom: 1rem; }
 
