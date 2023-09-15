@@ -46,3 +46,9 @@
     padding: 1rem;
   }
 }
+
+@media screen and (min-width: 767px) {
+  .navbar__menu {
+    display: none;
+  }
+}
