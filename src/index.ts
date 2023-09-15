@@ -6,6 +6,8 @@ import './styles/button.css';
 import './styles/navbar.css';
 import './styles/hero.css';
 import './styles/about.css';
+// post.css must be imported AFTER ALL other stylesheets
+import './styles/post.css';
 
 import { initNavbar } from './scripts/navbar';
 
