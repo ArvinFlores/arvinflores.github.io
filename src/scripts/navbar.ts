@@ -1,9 +1,21 @@
+function openMobileNav (menu: HTMLElement, btn: HTMLElement): void {
+  menu.classList.add('navbar__menu--expanded');
+  btn.setAttribute('disabled', 'true');
+  btn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMobileNav (menu: HTMLElement, btn: HTMLElement): void {
+  menu.classList.remove('navbar__menu--expanded');
+  btn.removeAttribute('disabled');
+  btn.setAttribute('aria-expanded', 'false');
+}
+
 export function initNavbar (navbar: HTMLElement | null): void {
   if (!navbar) return;
 
   const height = getComputedStyle(navbar).height;
   const nextEl = navbar.nextElementSibling;
-  const menu = navbar.querySelector('.navbar__menu');
+  const menu = navbar.querySelector<HTMLElement>('.navbar__menu');
   const menuBtn = document.getElementById('navbar__menu-btn');
   const menuCloseBtn = document.getElementById('navbar__menu-close-btn');
 
@@ -13,15 +25,11 @@ export function initNavbar (navbar: HTMLElement | null): void {
 
   if (menu && menuBtn && menuCloseBtn) {
     menuBtn.addEventListener('click', () => {
-      menu.classList.add('navbar__menu--expanded');
-      menuBtn.setAttribute('disabled', 'true');
-      menuBtn.setAttribute('aria-expanded', 'true');
+      openMobileNav(menu, menuBtn);
     });
 
     menuCloseBtn.addEventListener('click', () => {
-      menu.classList.remove('navbar__menu--expanded');
-      menuBtn.removeAttribute('disabled');
-      menuBtn.setAttribute('aria-expanded', 'false');
+      closeMobileNav(menu, menuBtn);
     });
   }
 
@@ -45,6 +53,8 @@ export function initNavbar (navbar: HTMLElement | null): void {
         top: targetEl.offsetTop - navbar.offsetHeight,
         behavior: 'smooth'
       });
+
+      if (menu && menuBtn) closeMobileNav(menu, menuBtn);
     });
   });
 }
