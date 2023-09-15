@@ -29,6 +29,8 @@
   display: none;
 }
 
+.util-text-charcoal { color: #4c4a4a; }
+
 @media screen and (max-width: 767px) {
   .util-container-padded { padding: 2rem; }
 
