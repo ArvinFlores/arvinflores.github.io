@@ -31,15 +31,20 @@ export function initNavbar (navbar: HTMLElement | null): void {
 
       const isEl = e.target instanceof Element;
       const href = (isEl && e.target.getAttribute('href')) || '';
+      const targetEl = document.querySelector<HTMLElement>(href);
 
       if (
         !isEl ||
+        !targetEl ||
         !href ||
         !href.startsWith('#') ||
         href.length < 2
       ) return;
 
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: targetEl.offsetTop - navbar.offsetHeight,
+        behavior: 'smooth'
+      });
     });
   });
 }
