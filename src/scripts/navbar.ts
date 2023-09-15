@@ -24,4 +24,22 @@ export function initNavbar (navbar: HTMLElement | null): void {
       menuBtn.setAttribute('aria-expanded', 'false');
     });
   }
+
+  navbar.querySelectorAll('.navbar__link')?.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const isEl = e.target instanceof Element;
+      const href = (isEl && e.target.getAttribute('href')) || '';
+
+      if (
+        !isEl ||
+        !href ||
+        !href.startsWith('#') ||
+        href.length < 2
+      ) return;
+
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 }
