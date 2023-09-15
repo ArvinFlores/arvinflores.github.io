@@ -35,19 +35,21 @@ export function initNavbar (navbar: HTMLElement | null): void {
 
   navbar.querySelectorAll('.navbar__link')?.forEach(link => {
     link.addEventListener('click', (e) => {
-      e.preventDefault();
-
       const isEl = e.target instanceof Element;
       const href = (isEl && e.target.getAttribute('href')) || '';
-      const targetEl = document.querySelector<HTMLElement>(href);
 
       if (
         !isEl ||
-        !targetEl ||
         !href ||
         !href.startsWith('#') ||
         href.length < 2
       ) return;
+
+      e.preventDefault();
+
+      const targetEl = document.querySelector<HTMLElement>(href);
+
+      if (!targetEl) return;
 
       window.scrollTo({
         top: targetEl.offsetTop - navbar.offsetHeight,
