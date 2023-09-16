@@ -1,3 +1,5 @@
+import { throttle } from 'lodash';
+import { createInterval } from 'src/scripts/lib/timer';
 import {
   CarouselValue,
   CarouselSlideChangeEvent,
@@ -5,7 +7,6 @@ import {
   Events,
   Config
 } from './interfaces';
-import { throttle } from 'lodash';
 
 export function createCarousel (carousel: HTMLElement): CarouselValue {
   let initialized = false;
@@ -14,6 +15,18 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
   const indicators = carousel.querySelectorAll<HTMLButtonElement>(`.${Classnames.INDICATORS}`);
   const arrows = carousel.querySelectorAll<HTMLButtonElement>(`.${Classnames.ARROWS}`);
   const slides = carousel.querySelector<HTMLDivElement>(`.${Classnames.SLIDES}`);
+  const autoslider = createInterval(
+    () => carousel.dispatchEvent(new CustomEvent<CarouselSlideChangeEvent>(
+      Events.SLIDE_CHANGE,
+      {
+        detail: {
+          prevIdx: activeIdx,
+          currIdx: calcNextSlidePos('right')
+        }
+      }
+    )),
+    Config.SLIDE_TRANSITION_INTERVAL_MS
+  );
 
   function updateIndicators (prevIdx: number, currIdx: number): void {
     indicators[prevIdx].classList.remove(Classnames.INDICATOR_ACTIVE);
@@ -63,6 +76,7 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
 
     indicators.forEach((indicator, i) => {
       indicator.addEventListener('click', throttle(() => {
+        autoslider.reset();
         carousel.dispatchEvent(new CustomEvent<CarouselSlideChangeEvent>(
           Events.SLIDE_CHANGE,
           {
@@ -77,6 +91,7 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
 
     arrows.forEach(arrow => {
       arrow.addEventListener('click', throttle(() => {
+        autoslider.reset();
         carousel.dispatchEvent(new CustomEvent<CarouselSlideChangeEvent>(
           Events.SLIDE_CHANGE,
           {
@@ -95,6 +110,7 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
       if (initialized) return;
 
       indicators[activeIdx].classList.add('carousel__indicator--active');
+      autoslider.start();
       initialized = true;
 
       registerListeners();
