@@ -2,8 +2,10 @@ import {
   CarouselValue,
   CarouselSlideChangeEvent,
   Classnames,
-  Events
+  Events,
+  Config
 } from './interfaces';
+import { throttle } from 'lodash';
 
 export function createCarousel (carousel: HTMLElement): CarouselValue {
   let initialized = false;
@@ -60,7 +62,7 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
     });
 
     indicators.forEach((indicator, i) => {
-      indicator.addEventListener('click', () => {
+      indicator.addEventListener('click', throttle(() => {
         carousel.dispatchEvent(new CustomEvent<CarouselSlideChangeEvent>(
           Events.SLIDE_CHANGE,
           {
@@ -70,11 +72,11 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
             }
           }
         ));
-      });
+      }, Config.SLIDE_TRANSITION_DURATION_MS));
     });
 
     arrows.forEach(arrow => {
-      arrow.addEventListener('click', () => {
+      arrow.addEventListener('click', throttle(() => {
         carousel.dispatchEvent(new CustomEvent<CarouselSlideChangeEvent>(
           Events.SLIDE_CHANGE,
           {
@@ -84,7 +86,7 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
             }
           }
         ));
-      });
+      }, Config.SLIDE_TRANSITION_DURATION_MS));
     });
   }
 

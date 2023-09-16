@@ -17,3 +17,7 @@ export enum Classnames {
 export enum Events {
   SLIDE_CHANGE = 'slide:change'
 }
+
+export enum Config {
+  SLIDE_TRANSITION_DURATION_MS = 500
+}
