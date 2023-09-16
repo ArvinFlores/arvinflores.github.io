@@ -1,0 +1,35 @@
+.carousel__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.carousel__arrow {
+  position: relative;
+  z-index: 1000;
+}
+
+.carousel__slides {
+  padding: 0 1rem;
+  display: flex;
+  transition: all ease-in-out .5s;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+}
+
+.carousel__indicator {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel__indicator--active {
+  background-color: #052d55;
+  border: 1px solid #052d55;
+}

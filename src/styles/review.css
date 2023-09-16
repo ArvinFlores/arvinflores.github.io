@@ -1,0 +1,25 @@
+.reviews {
+  background-color: #f0f0f0;
+}
+
+.review-card {
+  max-width: 75%;
+  margin: auto;
+}
+
+.review-card__avatar {
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin: 0 auto .5rem;
+}
+
+@media screen and (max-width: 767px) {
+  .review-card {
+    max-width: none;
+  }
+}
