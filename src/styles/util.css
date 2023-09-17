@@ -34,6 +34,7 @@
 }
 
 .util-text-charcoal { color: #4c4a4a; }
+.util-text-dark-blue { color: #052d55; }
 
 @media screen and (max-width: 767px) {
   .util-container-padded { padding: 2rem; }
