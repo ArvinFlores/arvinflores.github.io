@@ -12,7 +12,9 @@ import './styles/review.css';
 import './styles/post.css';
 
 import { initNavbar } from './scripts/navbar';
+import { initFooter } from './scripts/footer';
 import { createCarousel } from './scripts/lib/carousel';
 
 initNavbar(document.getElementById('navbar'));
+initFooter(document.getElementById('footer'));
 createCarousel(document.querySelector('.carousel') as HTMLElement).init();
