@@ -49,7 +49,10 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
       pos += width;
     }
 
-    if (slides) slides.style.transform = `translateX(-${pos}px)`;
+    if (slides) {
+      slides.style.transition = `all ease-in-out ${Config.SLIDE_TRANSITION_DURATION_MS / 1000}s`;
+      slides.style.transform = `translateX(-${pos}px)`;
+    }
   }
 
   function calcNextSlidePos (direction: string): number {
@@ -102,6 +105,19 @@ export function createCarousel (carousel: HTMLElement): CarouselValue {
           }
         ));
       }, Config.SLIDE_TRANSITION_DURATION_MS));
+    });
+
+    window.addEventListener('resize', () => {
+      const width = Array.from(slides?.children ?? []).slice(0, activeIdx).reduce(
+        (acc: number, node: HTMLDivElement) => acc += node.offsetWidth,
+        0
+      );
+
+      pos = width;
+      if (slides) {
+        slides.style.transition = 'none';
+        slides.style.transform = `translateX(-${pos}px)`;
+      }
     });
   }
 

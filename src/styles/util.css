@@ -4,7 +4,11 @@
   justify-content: center;
 }
 
-.util-list-inline > li:not(:last-child) {
+.util-list-inline--m-m > li:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.util-list-inline--m-l > li:not(:last-child) {
   margin-right: 2rem;
 }
 
