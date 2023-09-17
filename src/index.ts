@@ -13,8 +13,10 @@ import './styles/post.css';
 
 import { initNavbar } from './scripts/navbar';
 import { initFooter } from './scripts/footer';
+import { initDesktopStyles } from './scripts/desktop-styles';
 import { createCarousel } from './scripts/lib/carousel';
 
 initNavbar(document.getElementById('navbar'));
 initFooter(document.getElementById('footer'));
+initDesktopStyles();
 createCarousel(document.querySelector('.carousel') as HTMLElement).init();

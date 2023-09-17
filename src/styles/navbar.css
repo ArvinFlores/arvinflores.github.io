@@ -14,6 +14,23 @@
 
 .navbar__link {
   font-size: 1.25rem;
+  position: relative;
+}
+
+.navbar__link--hover:after {
+  content: '';
+  position: absolute;
+  bottom: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 5px;
+  background-color: #088af2;
+  transition: all ease-in-out .25s;
+}
+
+.navbar__link--hover:hover:after {
+  width: 100%;
 }
 
 .navbar__menu {
@@ -39,16 +56,11 @@
   right: 15px;
   top: 15px;
   color: white;
+  z-index: 1;
 }
 
 @media screen and (max-width: 1024px) {
   .navbar {
     padding: 1rem;
-  }
-}
-
-@media screen and (min-width: 767px) {
-  .navbar__menu {
-    display: none;
   }
 }

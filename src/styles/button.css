@@ -9,6 +9,11 @@
 .btn--primary {
   color: white;
   background-color: #088af2;
+  transition: background-color ease-in-out .3s;
+}
+
+.btn--primary-hover:hover {
+  background-color: #086bbb;
 }
 
 .btn--transparent {
