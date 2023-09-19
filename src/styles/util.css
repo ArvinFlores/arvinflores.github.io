@@ -36,10 +36,18 @@
 .util-text-charcoal { color: #4c4a4a; }
 .util-text-dark-blue { color: #052d55; }
 
+.util-header {
+  max-width: 625px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (max-width: 767px) {
   .util-container-padded { padding: 2rem; }
 
   .util-mobile-only { display: block; }
 
   .util-desktop-only { display: none; }
+
+  .util-header { max-width: none; }
 }

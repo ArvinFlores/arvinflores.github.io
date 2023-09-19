@@ -1,6 +1,7 @@
 .about {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
 }
 
@@ -19,9 +20,7 @@
 }
 
 .about__img {
-  max-width: 50%;
-  border-top-right-radius: 200px 50%;
-  border-bottom-right-radius: 200px 50%;
+  max-width: 27%;
   position: relative;
 }
 
@@ -29,6 +28,7 @@
   position: relative;
   text-align: right;
   width: 100%;
+  max-width: 50%;
 }
 
 .about__icon {
@@ -44,9 +44,10 @@
   justify-content: flex-end;
 }
 
-@media screen and (max-width: 1335px) {
+@media screen and (max-width: 990px) {
   .about__text {
     text-align: center;
+    max-width: none;
   }
 
   .about__img {

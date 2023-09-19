@@ -29,3 +29,7 @@ a {
 button:disabled {
   color: inherit;
 }
+
+p {
+  line-height: 1.5;
+}
