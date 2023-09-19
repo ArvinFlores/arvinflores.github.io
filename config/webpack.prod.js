@@ -3,18 +3,28 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const base = require('./webpack.base');
 
 module.exports = merge(base, {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
+    assetModuleFilename: 'images/[hash][ext][query]',
     path: path.resolve(__dirname, '../public'),
     clean: true
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../static/images'),
+          to: path.resolve(__dirname, '../public/images')
+        }
+      ]
     })
   ],
   module: {
@@ -22,6 +32,10 @@ module.exports = merge(base, {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(jpg|jpeg|png)$/,
+        type: 'asset/resource'
       }
     ]
   },
