@@ -23,6 +23,10 @@ module.exports = merge(base, {
         {
           from: path.resolve(__dirname, '../static/images'),
           to: path.resolve(__dirname, '../public/images')
+        },
+        {
+          from: path.resolve(__dirname, '../CNAME'),
+          to: path.resolve(__dirname, '../public')
         }
       ]
     })
