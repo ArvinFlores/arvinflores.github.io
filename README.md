@@ -33,6 +33,8 @@ npm run build
 ```
 This will place all of the production assets into the `public/` directory
 
+You will then have to push the new changes to github ie: `git add public/ && git commit -m 'update website' && git push`
+
 Note: The assets are all hashed to take advantage of browser caching and will only change when the actual content of the file changes
 
 ### Publishing changes to website
